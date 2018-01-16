@@ -4,7 +4,7 @@ import './css/style.css';
 import Home from "./pages/Home";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Routes from "./routes";
-
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
@@ -13,7 +13,6 @@ class App extends Component {
       <div className="App">
 
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Flip Finder</h1>
         </header>
         <Routes/>

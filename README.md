@@ -13,6 +13,7 @@ Project in Dev.
 - Sassy styles
 - Java Plume Framework back-end (made in Coreoz)
 - Rest WS (jersey)
+- React-mapbox-gl
 
 
 and more to come !

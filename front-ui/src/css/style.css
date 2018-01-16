@@ -10,7 +10,7 @@
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
-  --orange: #f59f21;
+  --orange: #38f5a5;
   --yellow: #ffc107;
   --green: #28a745;
   --teal: #20c997;
@@ -6316,7 +6316,7 @@ a:link, a:hover, a:visited, a:active {
   height: 80px; }
 
 .App-header {
-  background-color: #f59f21;
+  background-color: #38f5a5;
   max-height: 50px;
   padding: 10px;
   color: white;

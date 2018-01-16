@@ -106,11 +106,15 @@ public class FlipperService extends CrudService<Flipper> {
         flipperBean.setActive(flip.getActive());
         flipperBean.setPrice1(flip.getPrice1());
         flipperBean.setPrice2(flip.getPrice2());
+
         flipperBean.setAddress(place.getAddress());
         flipperBean.setCity(place.getCity());
         flipperBean.setPostalCode(place.getPostalCode());
+        flipperBean.setLat(place.getLat().toString());
+        flipperBean.setLng(place.getLng().toString());
         flipperBean.setPlaceName(place.getName());
         flipperBean.setSchedule(place.getSchedule());
+
         flipperBean.setMissions(model.getMissions());
         flipperBean.setFlipName(model.getName());
 

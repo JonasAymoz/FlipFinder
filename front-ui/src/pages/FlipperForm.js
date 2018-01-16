@@ -3,6 +3,7 @@ import Location from "../services/geolocation";
 import FlipperWs from "../services/FlipperWs";
 import FlipperList from "./FlipperList";
 
+
 class FlipperForm extends Component {
 
 
@@ -18,6 +19,10 @@ class FlipperForm extends Component {
             console.log(response.data);
             this.setState({'items' : response.data});
         })
+    }
+
+    onSelect (value) {
+        this.setState({ value: value });
     }
 
     render() {
@@ -51,6 +56,7 @@ class FlipperForm extends Component {
 
                     <label> Missions </label><br/>
                     <input onChange={this.handleChange} name="missions" value={this.state.missions} /><br/>
+
 
                     <button className="btn btn-primary">Ajoute ce flip !</button>
                 </form>

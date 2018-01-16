@@ -1,10 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import mapboxgl from 'mapbox-gl';
-import accessToken from '../config';
-
-var token = accessToken;
-mapboxgl.accessToken = 'pk.eyJ1IjoiamF5bW96IiwiYSI6ImNqODM2aHV4ajdmemgyd250YnVreHJvMnIifQ.11wkla2CzMuBfaQFn5gdZg';
+import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
+import FlipperWs from "../services/FlipperWs";
 
 class Home extends React.Component {
 
@@ -13,41 +9,47 @@ class Home extends React.Component {
         this.state = {
             lat: 44.812171799999994,
             lng: -0.5566673,
-            zoom: 12
+            zoom: [12],
+            items : [],
         };
 
     }
 
     componentDidMount() {
-        const { lng, lat, zoom } = this.state;
+        FlipperWs.getFlippers().then(response => {
+            console.log(response.data);
+            this.setState({'items' : response.data});
+        })
 
-        const map = new mapboxgl.Map({
-            container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v9',
-            center: [lng, lat],
-            zoom
-        });
-
-        map.on('move', () => {
-            const { lng, lat } = map.getCenter();
-
-            this.setState({
-                lng: lng.toFixed(4),
-                lat: lat.toFixed(4),
-                zoom: map.getZoom().toFixed(2)
-            });
-        });
     }
 
     render() {
-        const { lng, lat, zoom } = this.state;
+        const { lng, lat, zoom, items } = this.state;
+        const Map = ReactMapboxGl({
+            accessToken: "pk.eyJ1IjoiamF5bW96IiwiYSI6ImNqY2h2cHh0bTI3N3kyd28yNDVyNmZxYTEifQ.R0SDBN2Vc924YYjQYPh4Qw",
+
+        });
 
         return (
             <div>
-                <div className="inline-block top left mt12 ml12 bg-darken75 color-white z1 py6 px12 round-full txt-s txt-bold">
-                    <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
-                </div>
-                <div ref={el => this.mapContainer = el} className="map" />
+                <Map style="mapbox://styles/jaymoz/cjchxjfwu7nhw2rk9emmti7j8" center={[lng, lat]} zoom={zoom} containerStyle={{ width: '100vw', height: '100vh'}}>
+
+                    <Layer
+                        type="symbol"
+                        id="someId"
+                        layout={{ 'icon-image': 'flipMarker2' }}>
+                        {
+                            items.map(k => (
+                                <Feature
+                                    onClick={console.log('-> click marker ' + k.lng + "  nom" + k.flipName)}
+                                    coordinates={[k.lng, k.lat]}
+                                    key={k.id}
+                                />
+                            ))
+                        }
+                    </Layer>
+
+                </Map>
             </div>
         );
     }
