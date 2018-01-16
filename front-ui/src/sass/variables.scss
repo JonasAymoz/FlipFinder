@@ -1,0 +1,24 @@
+
+
+
+// Colors
+$orange : #f59f21;
+$violet : #5e318a;
+$vert : #b8c530;
+$rouge : #d8493b;
+$orangeDark : #ec662a;
+
+$brand-primary  : $violet ;
+$brand-success : $vert ;
+$brand-info : $orange;
+$brand-warning : $orangeDark;
+$brand-danger : $rouge;
+
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+)

@@ -1,0 +1,66 @@
+
+// -----------------------
+// Main layout Styles
+// -----------------------
+
+html {
+  height: 100%;
+}
+body {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+
+#root, .App {
+  height: inherit;
+}
+
+.App {
+  text-align: center;
+  flex :1;
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f6;
+}
+
+.home {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+    width: 100%;
+    display: block;
+    height: 60vh;
+
+.mapboxgl-canvas {
+  position : inherit !important;
+}
+}
+
+.mainContainer {
+  padding : 25px 10px;
+  display: flex;
+  height: inherit;
+  align-content: center;
+  justify-content: center;
+}
+
+.whiteBg {
+  background: white;
+  padding: 25px;
+  margin-top: -20px;
+  padding-top: 65px;
+  margin-bottom: 85px;
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
