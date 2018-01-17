@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './css/style.css';
-import Home from "./pages/Home";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Routes from "./routes";
-import PropTypes from 'prop-types';
-
+import Header from "./components/Header";
+import {BrowserRouter as Router} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
 
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Flip Finder</h1>
-        </header>
-        <Routes/>
-      </div>
+      <Router>
+          <div className="App">
+              <Header/>
+
+              <div className="container">
+                    <Routes/>
+              </div>
+
+              <div className="footer">
+                  Da copyright
+              </div>
+          </div>
+      </Router>
+
     );
   }
 }

@@ -11,185 +11,20 @@
 @import 'fonts.scss';
 @import 'menu.scss';
 @import 'forms.scss';
+@import 'header.scss';
+@import 'typo.scss';
 
 
 
 
-.mainTitle {
-  color : white;
-  h1 {
-    font-size : 6em;
-  }
-  p {
-
-  }
-}
+// generic styles
 
 a:link, a:hover , a:visited ,a:active {
   text-decoration: none;
   color: inherit;
 }
 
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: $orange;
-  max-height: 50px;
-  padding: 10px;
-  color: white;
-  font-family: "dingleberry-solid";
-}
-
-.App-title {
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
-.btn-graba {
-  font-family: dingleberry-solid;
-  &:hover {
-    cursor: pointer;
-  }
-}
-.checkup {
-  color: white;
-}
-// texts
-
-h1, h2 {
-  font-family: dingleberry-solid;
-}
-
-.bannerTitle {
-  position: relative;
-  z-index: 10;
-  margin-top: 40px;
-}
-
-.bannerTitle::after {
-  content: '';
-  position: absolute;
-  padding: 9px;
-  left: -28px;
-  top: -10px;
-  width: 105%;
-  height: 70px;
-  background: #d8493b;
-  -webkit-transform: skewY(2.5deg);
-  -moz-transform: skewY(2.5deg);
-  -ms-transform: skewY(2.5deg);
-  -o-transform: skewY(2.5deg);
-  transform: skewY(2.5deg);
-  -webkit-backface-visibility: hidden;
-  z-index: -2;
-}
-
-// carousel
-
-.slick-slide img {
-  display: block;
-  max-height: 75vh;
-  margin: auto;
-  margin-top: 20px;
-}
-
-
-.slick-prev {
-  left : 25px !important;
-}
-.slick-next {
-  right : 25px !important;
-}
-
-.blackBg {
-  position: absolute;
-  top: 0;
-  background: black;
-  height: 100%;
-  width: 100%;
-}
-.slick-dots {
-
-}
-.slick-dots li button:before {
-  color : $orangeDark !important;
-}
-
-.titleSlider{
-  color : white;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  top: 20px;
-  span {
-    text-align: right;
-    position: absolute;
-    right: 20px;
-    top: 0px;
-  }
-}
-
-// home Video
-
-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  transform: translateX(-50%) translateY(-50%);
-  background-size: cover;
-  transition: 1s opacity;
-}
-
-
-// Map background depart
-
-.map-bg {
-
-  .col12 {
-    background: -moz-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  }
-
-  .col{
-    padding-top: 100px;
-    h1 {
-      color : $violet;
-      font-family: dingleberry-solid;
-    }
-  }
-}
- .camera{
-   transform: rotate(187deg);
-   opacity: 0;
-   transition: opacity 0.3s ease-in;
- }
-
-.visa {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-  margin-left: 20%;
-  transform: rotate(-18deg);
-}
-.display {
-  opacity: 1;
+* {
+  min-height: 0;
+  min-width: 0;
 }

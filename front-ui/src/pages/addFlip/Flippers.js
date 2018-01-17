@@ -11,14 +11,15 @@ class Flippers extends Component {
     }
 
     componentDidMount = () => {
-        var that = this;
 
     }
 
+
+
+
     render() {
         return <div>
-            Hello this is flipper bean !
-            <FlipperForm/>
+            <FlipperForm  onSubmit={this.onSubmit}/>
 
         </div>
     }

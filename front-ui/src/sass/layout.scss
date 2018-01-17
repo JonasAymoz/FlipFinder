@@ -15,7 +15,7 @@ body {
   font-family: Helvetica;
 }
 
-#root, .App {
+#root, .App, .container, .content {
   height: inherit;
 }
 
@@ -27,40 +27,10 @@ body {
   background: #f6f6f6;
 }
 
-.home {
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map {
-    width: 100%;
-    display: block;
-    height: 60vh;
-
-.mapboxgl-canvas {
-  position : inherit !important;
-}
-}
-
-.mainContainer {
-  padding : 25px 10px;
-  display: flex;
-  height: inherit;
-  align-content: center;
-  justify-content: center;
-}
-
-.whiteBg {
+.content {
+  padding: 15px;
+  text-align: left;
   background: white;
-  padding: 25px;
-  margin-top: -20px;
-  padding-top: 65px;
-  margin-bottom: 85px;
 }
 
-* {
-  min-height: 0;
-  min-width: 0;
-}
+

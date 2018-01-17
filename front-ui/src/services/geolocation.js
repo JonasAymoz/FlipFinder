@@ -35,9 +35,6 @@ import React, { Component } from 'react';
     render() {
       return (
         <div>
-          <h3>Ma Position : </h3>
-          <div>Latitude: <span>{this.state.lat}</span></div>
-          <div>Longitude: <span>{this.state.lng}</span></div>
         </div>
       );
     }

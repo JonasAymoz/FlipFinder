@@ -1,11 +1,16 @@
 
-
+// FORM & INPUT STYLES
 fieldset {
   padding : 10px 50px;
 }
 
 label {
   text-align: left;
+}
+
+
+input {
+  border-bottom: solid 1px $primary;
 }
 
 
