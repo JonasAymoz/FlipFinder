@@ -2,17 +2,21 @@
 
 
 // Colors
-$orange : #38f5a5;
-$violet : #5e318a;
-$vert : #b8c530;
-$rouge : #d8493b;
-$orangeDark : #ec662a;
 
-$brand-primary  : $violet ;
-$brand-success : $vert ;
-$brand-info : $orange;
-$brand-warning : $orangeDark;
-$brand-danger : $rouge;
+$gray : #E6E6E6;
+
+$brand-primary  : #5DFDCB ;
+$brand-success : #297373 ;
+$brand-info : #61E294;
+$brand-warning : #3c4859;
+$brand-danger : #C33C54;
+
+$primary:      $brand-primary;
+$secondary:     $brand-success;
+$success:       $brand-success ;
+$info:          $brand-info;
+$warning:       $brand-warning;
+$danger:        $brand-danger;
 
 
 $grid-breakpoints: (

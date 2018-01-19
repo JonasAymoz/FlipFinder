@@ -18,7 +18,7 @@ class Flippers extends Component {
 
 
     render() {
-        return <div>
+        return <div className="p-3">
             <FlipperForm  onSubmit={this.onSubmit}/>
 
         </div>

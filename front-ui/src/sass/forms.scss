@@ -8,7 +8,6 @@ label {
   text-align: left;
 }
 
-
 input {
   border-bottom: solid 1px $primary;
 }
@@ -24,8 +23,37 @@ input {
   vertical-align: top;
   background: #fff;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
+
 }
 
+
+
+// Autocomplete Styles
+
+
+.itemAutocomplete{
+  background: $brand-warning;
+  color: $gray;
+  border-radius:10px;
+  padding: 1px 10px;
+  opacity: 1;
+  width: auto;
+  display: inline-block;
+  margin: 3px;
+
+  &.highlighted, &:hover {
+    background: $brand-info;
+    color: $brand-warning;
+  }
+}
+
+.menuAutocomplete {
+  padding-bottom: 1rem;
+}
+
+
+
+//
 
 .control {
   font-size: 18px;

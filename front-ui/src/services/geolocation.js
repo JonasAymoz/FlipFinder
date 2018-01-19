@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 
+export var getCurrentLocation = (callback) => {
+    //If brower supports HTML5 geoLocation
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition( function(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            callback(lat, lng);
+        });
+    }
+    else {
+        alert('This Browser doesn\'t support HTML5 geolocation');
+    }
+}
 
 
 
-  class Location extends Component {
+
+ export class Location extends Component {
     constructor(props) {
         super(props);
         this.state = {lat: 0,
@@ -40,4 +55,3 @@ import React, { Component } from 'react';
     }
   }
 
-export default Location; 

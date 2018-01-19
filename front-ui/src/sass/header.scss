@@ -2,10 +2,11 @@
 // HEADER STYLES
 
 .App-header {
-  background-color: blue;
+  background-color: $brand-warning;
   max-height: 50px;
   padding: 10px;
-  color: white;
+  color: $brand-primary;
+  font-family: 'VT323', monospace;
 }
 
 

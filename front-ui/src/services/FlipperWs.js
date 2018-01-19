@@ -11,8 +11,12 @@ function add(flip) {
 	return axios.post(server+'/api/flip', flip
 		);
 	}
-	
+
+function getFlipModels() {
+    return axios.get(server+'/api/flipModel');
+}
+
 const FlipperWs = {
-  getFlippers, add  
+  getFlippers, add, getFlipModels
 } 
 export default FlipperWs;
