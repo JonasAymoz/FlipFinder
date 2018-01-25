@@ -150,9 +150,9 @@ class FlipperForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="p-3 w-100 addFlipper">
                 <h3>Ajoute un flipper</h3>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="addFlipForm container-fluid">
 
                     <InputText id="flipName" label="Nom du flipper" placeHolder="nom" name="flipName"
                                value={this.state.flipName}

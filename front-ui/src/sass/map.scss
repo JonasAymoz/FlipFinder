@@ -1,0 +1,38 @@
+// MAP
+
+.searchMap {
+  position : absolute;
+  top : 20px;
+  z-index: 100;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: auto;
+
+  div:first-child {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .row {
+    margin-bottom: 0;
+  }
+}
+
+.homeResultList{
+  background: white;
+  padding: 10px;
+  margin: 0;
+  li {
+    padding: 2px;
+    font-size: 0.95rem;
+    &:hover {
+      background: $secondary;
+      color: white;
+    }
+  }
+}
+
+.mapboxgl-ctrl-attrib {
+  display: none;
+}

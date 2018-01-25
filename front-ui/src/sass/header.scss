@@ -3,10 +3,10 @@
 
 .App-header {
   background-color: $brand-warning;
-  max-height: 50px;
+  max-height: 40px;
   padding: 10px;
   color: $brand-primary;
-  font-family: 'VT323', monospace;
+  font-family: 'VT323', monospace ;
 }
 
 
@@ -16,4 +16,15 @@
   top : 15px;
   text-align: right;
 
+}
+
+.App-title {
+  font-size: 1.3rem;
+  font-family: 'VT323'!important;
+}
+
+
+.footer {
+  font-size: 0.9rem;
+  background: $brand-warning;
 }

@@ -3,30 +3,45 @@
 // Main layout Styles
 // -----------------------
 
-html {
-  height: 100%;
-}
-body {
-  height: inherit;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica;
-  background: $gray;
+html,
+body{
+  height:100%;
+  margin:0;
+  padding:0;
 }
 
-#root, .App, .container, .content {
-  height: inherit;
+#root, .App{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container, .content {
+    flex:1;
+    display:flex;
+    flex-direction:row;
+}
+
+.content {
+  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@include media-breakpoint-only(xs) {
+  .content {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 .App {
-  text-align: center;
-  flex :1;
-  display: flex;
-  flex-direction: column;
-  background: #f6f6f6;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2361e294' fill-opacity='0.21'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
 
 .content {
   text-align: left;
@@ -39,5 +54,92 @@ body {
   }
 }
 
+// ----- HOME LAYOUT ---
+
+.homeScreen {
+  display: flex;
+  flex :1;
+  flex-direction: column;
+}
+
+.mapboxgl-map {
+  flex : 2;
+  display: flex;
+}
+
+.flipDetails {
+  flex : 0.00001 0 0;
+  display: flex;
+  transition: all 0.3s;
+  opacity: 0;
+  padding: 10px;
+  box-shadow: 1px -2px 103px -7px rgba(0,0,0,0.75);
+  z-index:200;
+  flex-direction: column;
+  margin-top: -20px;
+
+  .media {
+    padding-top: 10px;
+  }
+
+  &.isOpen {
+    flex : 1;
+    display: flex;
+    opacity: 1;
+    margin-top: 0px;
+
+    .closeIcon {
+      transform: rotate(180deg);
+    }
+    .flipName:after {
+      background: none repeat scroll 0 0 $primary;
+      bottom: 0px;
+      content: "";
+      display: block;
+      height: 6px;
+      position: relative;
+      width: 60px;
+    }
+
+  }
+  &.wideOpen {
+    flex:3;
+  }
+
+  .flipName {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: bold;
+    color: $black;
+  }
+
+  .flipName:after {
+    background: none repeat scroll 0 0 $primary;
+    bottom: 0px;
+    content: "";
+    display: block;
+    height: 6px;
+    position: relative;
+    width: 0px;
+    transition: all 0.6s ease;
+  }
+  .placeName {
+    margin-bottom: 0;
+    margin-top: 4px;
+    font-size: 1rem;
+  }
+  .address {
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-top: -2px;
+  }
+
+  .closeIcon {
+    position: absolute;
+    right: 10px;
+    height: 15px;
+    transition: all 0.6s ease;
+  }
+}
 
 

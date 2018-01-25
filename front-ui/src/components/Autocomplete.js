@@ -138,10 +138,11 @@ export default class Geocoder extends Component {
             className={this.props.inputClass}
             onInput={this.onInput}
             onKeyDown={this.onKeyDown}
-            placeholder={this.props.inputPlaceholder}
+            placeHolder={this.props.inputPlaceholder}
             onBlur={this.handleBlur}
             value={this.state.inputValue}
-            label="Adresse" />
+            label="Adresse"
+            noLabel={this.props.noLabel || false }/>
 
 
         return <div>

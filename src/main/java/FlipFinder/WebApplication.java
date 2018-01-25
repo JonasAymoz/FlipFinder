@@ -37,7 +37,7 @@ public class WebApplication {
 			System.getProperty("http.address")
 		);
 
-		logger.info("Server started in {} ms", System.currentTimeMillis() - startTimestamp);
+		logger.error("Server FLIP started in {} ms @ {} {} ", System.currentTimeMillis() - startTimestamp,System.getProperty("http.address"), System.getProperty("http.port"));
 	}
 
 }
