@@ -72,10 +72,6 @@ class Home extends React.Component {
             lng :flip.lng,
             showResearchBar : (prevState.flip.id === flip.id)? !prevState.showResearchBar : false,
         }));
-
-
-
-
     }
 
     onStyleLoad = (map) => {
@@ -83,6 +79,16 @@ class Home extends React.Component {
             map
         });
     };
+
+    desactivateFlipper = (flip, e) => {
+        FlipperWs.desactivateFlipper(flip.id).then(response => {
+        // console.log(response.data);
+            this.openFlipper(flip);
+            this.setState({'items' : response.data});
+        });
+
+    }
+
 
 
     //todo click on marker avec hover / cursor pointer
@@ -123,7 +129,7 @@ class Home extends React.Component {
                         }
                     </Layer>
                 </Map>
-                <FlipperCard flip={this.state.flip} isOpen={this.state.isOpen} closeFunction={this.openFlipper}/>
+                <FlipperCard flip={this.state.flip} isOpen={this.state.isOpen} closeFunction={this.openFlipper} desactivateFlipper={this.desactivateFlipper}/>
 
             </div>
         );

@@ -16,7 +16,11 @@ function getFlipModels() {
     return axios.get(server+'/api/flipModel');
 }
 
+function desactivateFlipper(id) {
+    return axios.delete(server+'/api/flip/'+id);
+}
+
 const FlipperWs = {
-  getFlippers, add, getFlipModels
+  getFlippers, add, getFlipModels, desactivateFlipper
 } 
 export default FlipperWs;

@@ -26,11 +26,9 @@ class FlipperCard extends Component {
             </div>
 
             <div className='flipCardContent'>
-               <div className=""> Prix :</div>
+               <div className=""> Prix : 1€ -> {this.props.flip.price1} parties / 2€ -> {this.props.flip.price2}</div>
                <div className="deleteDiv">
-                    Hello world
-                   <div className="btn btn-danger">Signaler un flip disparu :/ </div>
-
+                   <div className="btn btn-danger" onClick={(e) => this.props.desactivateFlipper(this.props.flip, e)}>Signaler un flip disparu :/ </div>
                </div>
             </div>
 
