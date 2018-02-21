@@ -96,6 +96,8 @@ export default class Geocoder extends Component {
                 this.acceptFocus();
                 e.preventDefault();
                 break;
+            default:
+                break;
         }
     }
 

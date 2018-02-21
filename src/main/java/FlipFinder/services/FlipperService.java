@@ -50,7 +50,14 @@ public class FlipperService extends CrudService<Flipper> {
 
     }
 
+    public List<FlipperBean> desactivateFlipper(Long id) {
 
+        Flipper flip = flipperDao.findById(id);
+        flip.setActive(FlipperState.DISAPEARED.name());
+        flipperDao.save(flip);
+        return getFlippersBean();
+
+    }
 
     public FlipperPlaceModel getFlipper(Long id) {
 

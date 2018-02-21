@@ -32,23 +32,196 @@ input {
 
 
 .addFlipper {
-  h3 {
+  h3{
     font-family: 'VT323', monospace;
-    border-bottom: solid 2px $secondary;
-    margin-bottom: 1em;
+    &.title {
+      border-bottom: solid 2px $secondary;
+      margin-bottom: 1em;
+    }
   }
 
 }
 
 .addFlipForm {
 
+  fieldset {
+    padding: 0;
+  }
   .row {
 
   }
 
 }
 
+.errorField {
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+.onFocusAddress {
+  background: $primary;
+}
 
+.addressResult {
+  padding : 2px;
+  font-size: 80%;
+  border-radius: 2px;
+  margin: 0;
+}
+
+
+// -- INPUT NUMBER ---
+
+
+.inputNumber {
+  text-align: center;
+  padding : 6px 5px 0;
+
+  .add {
+  font-size: 2rem;
+    height: 19px;
+  }
+  .minus {
+    font-size: 2rem;
+    transform: rotate(180deg);
+    height: 19px;
+  }
+
+}
+
+
+
+// ____ BTN _________
+
+.gpsBtn {
+  float: right;
+  margin-right: -15px;
+}
+@include media-breakpoint-only(xs) {
+  .gpsBtn {
+    float: none;
+    text-align: center;
+    margin-right: 0;
+  }
+}
+
+.btn:focus, .btn:active,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus, .btn:focus {
+  outline: none;
+  border: none;
+  box-shadow:none !important;
+}
+
+.btn-primary {
+  background: $primary;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, $primary, $brand-info);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, $primary, $brand-info); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
+}
+
+.btn-loading {
+  background: #43C6AC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #191654, #43C6AC, #191654);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #191654, #43C6AC,  #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
+  -webkit-animation: Gradient 2s ease infinite;
+  -moz-animation: Gradient 2s ease infinite;
+  animation: Gradient 2s ease infinite;
+  background-size: 400% 400%;
+
+}
+
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0 50%
+  }
+}
+
+
+
+
+.btn-bordered {
+  background: $primary;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, $primary, $brand-info);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, $primary, $brand-info); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ // background-size: 400% 100%;
+  background-position-x: 67%;
+  transition: background-position-x 1s ease, padding-right 0.4s ease;;
+
+
+  &.clicked {
+    //background-position-x: 18%;
+    padding-right: 30px;
+  }
+  &.clicked:after {
+    margin-left: 30rem;
+    opacity: 1;
+  }
+
+  &:after {
+    content : '';
+    height: 20px;
+    width: 20px;
+    margin-left: 0.25rem;
+    margin-top: -21px;
+    border-radius: 50%;
+    position: absolute;
+    transition: margin-left 1s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition-delay: 0.4s;
+    z-index: 1;
+    opacity: 0;
+    background: radial-gradient(circle at 5px 5px, $gray-100, $gray-700);
+
+  }
+}
+
+@keyframes blink {50% { color: transparent }}
+.loader__dot { animation: 1s blink infinite }
+.loader__dot:nth-child(2) { animation-delay: 250ms }
+.loader__dot:nth-child(3) { animation-delay: 500ms }
+
+@keyframes walkingGradient {
+  0% {
+    background-position-x: 31%
+  }
+  50% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: -30%
+  }
+}
 
 
 // Autocomplete Styles

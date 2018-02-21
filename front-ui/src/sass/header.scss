@@ -20,11 +20,12 @@
 
 .App-title {
   font-size: 1.3rem;
-  font-family: 'VT323'!important;
+  font-family: 'VT323', monospace ;
 }
 
 
 .footer {
   font-size: 0.9rem;
   background: $brand-warning;
+  height : 15px;
 }

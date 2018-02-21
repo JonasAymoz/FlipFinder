@@ -36,8 +36,7 @@ public class FlipperWs {
 	@Path("/")
 	@ApiOperation("All flippers")
 	public List<FlipperPlaceModel> getFlippers() {
-		List<FlipperPlaceModel> flip = flipperService.getFlippers();
-		return flip;
+		return flipperService.getFlippers();
 
 	}
 
@@ -45,8 +44,7 @@ public class FlipperWs {
 	@Path("/all")
 	@ApiOperation("All flippers bean")
 	public List<FlipperBean> getFlippersBean() {
-		List<FlipperBean> flip = flipperService.getFlippersBean();
-		return flip;
+		return flipperService.getFlippersBean();
 
 	}
 
@@ -55,16 +53,21 @@ public class FlipperWs {
 	@ApiOperation("Get FlipperPlaceModel by id")
 	public FlipperPlaceModel getFlipper(@ApiParam(required = true) @PathParam("id") Long id) {
 
-		FlipperPlaceModel flip = flipperService.getFlipper(id);
-		return flip;
+		return flipperService.getFlipper(id);
 	}
 
 	@POST
 	@ApiOperation("Add a flip")
 	public FlipperBean addFlipper( FlipperBean flip) {
-
 		FlipperBean addedFlip = flipperService.addFlipper(flip);
 		return addedFlip;
+	}
+
+	@DELETE
+	@Path("/{id}")
+	@ApiOperation("Desactivate a flipper")
+	public List<FlipperBean> desactivateFlipper(@ApiParam(required = true) @PathParam("id") Long id) {
+		return flipperService.desactivateFlipper(id);
 	}
 	
 }

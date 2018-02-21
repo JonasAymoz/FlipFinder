@@ -23,8 +23,9 @@ class InputText extends  PureComponent {
                    onBlur={this.props.onBlur}
                    onFocus={this.props.onFocus}
                    onKeyUp={this.props.onKeyUp}
-                   autocomplete="off"
+                   autoComplete="nope"
             />
+            {this.props.isValid && <div className="offset-sm-2 col-sm-10 errorField"> {this.props.errorMsg} </div> }
         </div>
     )}
 }
@@ -37,6 +38,8 @@ InputText.propTypes = {
     placeHolder: PropTypes.string,
     value: PropTypes.string,
     noLabel : PropTypes.bool,
+    errorMsg : PropTypes.string,
+    isValid : PropTypes.bool
 };
 
 export default InputText;
