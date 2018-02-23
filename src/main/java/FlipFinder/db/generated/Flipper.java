@@ -24,6 +24,10 @@ public class Flipper extends com.coreoz.plume.db.querydsl.crud.CrudEntityQueryds
     private java.time.LocalDate lastSeen;
 
     @JsonSerialize(using=com.fasterxml.jackson.databind.ser.std.ToStringSerializer.class)
+    @Column("main_image_id")
+    private Long mainImageId;
+
+    @JsonSerialize(using=com.fasterxml.jackson.databind.ser.std.ToStringSerializer.class)
     @Column("model")
     private Long model;
 
@@ -67,6 +71,14 @@ public class Flipper extends com.coreoz.plume.db.querydsl.crud.CrudEntityQueryds
 
     public void setLastSeen(java.time.LocalDate lastSeen) {
         this.lastSeen = lastSeen;
+    }
+
+    public Long getMainImageId() {
+        return mainImageId;
+    }
+
+    public void setMainImageId(Long mainImageId) {
+        this.mainImageId = mainImageId;
     }
 
     public Long getModel() {

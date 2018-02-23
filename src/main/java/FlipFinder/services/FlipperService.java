@@ -9,12 +9,15 @@ import FlipFinder.db.generated.Flipper;
 import FlipFinder.db.generated.Place;
 import FlipFinder.enums.FlipperState;
 import FlipFinder.webservices.api.data.FlipperBean;
+import FlipFinder.webservices.api.data.FlipperBeanImage;
 import com.coreoz.plume.db.crud.CrudService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Singleton
@@ -60,14 +63,14 @@ public class FlipperService extends CrudService<Flipper> {
     }
 
     public FlipperPlaceModel getFlipper(Long id) {
-
+        // todo refacto to flipperBean
         Flipper flip = flipperDao.findById(id);
         return new FlipperPlaceModel(flip, placeDao.findById(flip.getPlace()), flipModelDao.findById(flip.getModel())  );
 
     }
 
 
-    public FlipperBean addFlipper (FlipperBean flipperBean) {
+    public FlipperBean addFlipper (FlipperBeanImage flipperBean) {
 
         // Add place
         Place place = new Place();
@@ -97,8 +100,34 @@ public class FlipperService extends CrudService<Flipper> {
         flip.setPlace(place.getId());
         flip.setAddDate(LocalDate.now());
         flip.setLastSeen(LocalDate.now());
+
+        // add image
+        //Optional<FileUploaded> fileId = fileService.upload(ProjectFileType.MAIN_IMAGE_ID, flipperBean.getImageFile());
+        //flip.setMainImageId(fileId.get().getId());
         flipperDao.save(flip);
 
+        return  fromFlipperBean(flipperBean, flip.getMainImageId());
+    }
+
+    private FlipperBean fromFlipperBean(FlipperBeanImage flipperBeanImage, Long mainImageId) {
+        FlipperBean flipperBean = new FlipperBean();
+
+        flipperBean.setId(flipperBeanImage.getId());
+        flipperBean.setActive(flipperBeanImage.getActive());
+        flipperBean.setPrice1(flipperBeanImage.getPrice1());
+        flipperBean.setPrice2(flipperBeanImage.getPrice2());
+
+        flipperBean.setAddress(flipperBeanImage.getAddress());
+        flipperBean.setCity(flipperBeanImage.getCity());
+        flipperBean.setPostalCode(flipperBeanImage.getPostalCode());
+        flipperBean.setLat(flipperBeanImage.getLat());
+        flipperBean.setLng(flipperBeanImage.getLng());
+        flipperBean.setPlaceName(flipperBeanImage.getPlaceName());
+        flipperBean.setSchedule(flipperBeanImage.getSchedule());
+
+        flipperBean.setMissions(flipperBeanImage.getMissions());
+        flipperBean.setFlipName(flipperBeanImage.getFlipName());
+        flipperBean.setImageUrl(null);
 
         return flipperBean;
     }
@@ -124,6 +153,7 @@ public class FlipperService extends CrudService<Flipper> {
 
         flipperBean.setMissions(model.getMissions());
         flipperBean.setFlipName(model.getName());
+        flipperBean.setImageUrl(null);
 
         return flipperBean;
     }

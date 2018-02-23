@@ -32,6 +32,8 @@ public class QFlipper extends com.querydsl.sql.RelationalPathBase<Flipper> {
 
     public final DatePath<java.time.LocalDate> lastSeen = createDate("lastSeen", java.time.LocalDate.class);
 
+    public final NumberPath<Long> mainImageId = createNumber("mainImageId", Long.class);
+
     public final NumberPath<Long> model = createNumber("model", Long.class);
 
     public final NumberPath<Long> place = createNumber("place", Long.class);
@@ -42,9 +44,11 @@ public class QFlipper extends com.querydsl.sql.RelationalPathBase<Flipper> {
 
     public final com.querydsl.sql.PrimaryKey<Flipper> primary = createPrimaryKey(id);
 
-    public final com.querydsl.sql.ForeignKey<Place> ffFlipperFfPlaceIdFk = createForeignKey(place, "id");
-
     public final com.querydsl.sql.ForeignKey<FlipModel> ffFlipperFfFlipModelIdFk = createForeignKey(model, "id");
+
+    public final com.querydsl.sql.ForeignKey<com.coreoz.plume.file.db.querydsl.FileEntityQuerydsl> mainImageIdFk = createForeignKey(mainImageId, "id");
+
+    public final com.querydsl.sql.ForeignKey<Place> ffFlipperFfPlaceIdFk = createForeignKey(place, "id");
 
     public QFlipper(String variable) {
         super(Flipper.class, forVariable(variable), "null", "ff_flipper");
@@ -76,6 +80,7 @@ public class QFlipper extends com.querydsl.sql.RelationalPathBase<Flipper> {
         addMetadata(addDate, ColumnMetadata.named("add_date").withIndex(3).ofType(Types.DATE).withSize(10));
         addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.BIGINT).withSize(19).notNull());
         addMetadata(lastSeen, ColumnMetadata.named("last_seen").withIndex(4).ofType(Types.DATE).withSize(10));
+        addMetadata(mainImageId, ColumnMetadata.named("main_image_id").withIndex(9).ofType(Types.BIGINT).withSize(19));
         addMetadata(model, ColumnMetadata.named("model").withIndex(7).ofType(Types.BIGINT).withSize(19));
         addMetadata(place, ColumnMetadata.named("place").withIndex(8).ofType(Types.BIGINT).withSize(19));
         addMetadata(price1, ColumnMetadata.named("price1").withIndex(5).ofType(Types.INTEGER).withSize(10));

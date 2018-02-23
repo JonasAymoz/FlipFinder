@@ -4,6 +4,7 @@ import FlipFinder.db.beans.FlipperPlaceModel;
 import FlipFinder.services.FlipperService;
 import FlipFinder.services.configuration.ConfigurationService;
 import FlipFinder.webservices.api.data.FlipperBean;
+import FlipFinder.webservices.api.data.FlipperBeanImage;
 import FlipFinder.webservices.api.data.Test;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -58,7 +59,7 @@ public class FlipperWs {
 
 	@POST
 	@ApiOperation("Add a flip")
-	public FlipperBean addFlipper( FlipperBean flip) {
+	public FlipperBean addFlipper( FlipperBeanImage flip) {
 		FlipperBean addedFlip = flipperService.addFlipper(flip);
 		return addedFlip;
 	}

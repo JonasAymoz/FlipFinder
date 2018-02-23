@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FlipperBean {
+public class FlipperBeanImage {
 
     @JsonSerialize(using = ToStringSerializer.class)
     private String id;
@@ -31,5 +31,4 @@ public class FlipperBean {
     private String missions;
     private String flipName;
 
-    private String imageUrl;
 }

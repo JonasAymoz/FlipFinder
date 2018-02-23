@@ -11,6 +11,7 @@ import org.jvnet.hk2.guice.bridge.api.GuiceBridge;
 import org.jvnet.hk2.guice.bridge.api.GuiceIntoHK2Bridge;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.coreoz.plume.file.webservices.FileWs;
 
 import javax.inject.Inject;
 
@@ -48,6 +49,8 @@ public class JerseyConfig extends ResourceConfig {
 		GuiceIntoHK2Bridge guiceBridge = serviceLocator.getService(GuiceIntoHK2Bridge.class);
 		guiceBridge.bridgeGuiceInjector(Factory.injector());
 
+		// upload files
+		//register(FileWs.class);
 
 		// CORS filter
 		register(CORSResponseFilter.class);

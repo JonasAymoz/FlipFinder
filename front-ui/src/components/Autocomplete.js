@@ -154,10 +154,10 @@ export default class Geocoder extends Component {
             { this.state.results.length > 0 && this.state.showList &&
             <ul key='needed-for-flip-move'
                 id='react-geo-list'
-                className = {((this.props.showLoader && this.state.loading)? 'loading' : '') + ' ' + this.props.resultsClass }>
+                className = {((this.props.showLoader && this.state.loading)? 'loading' : '') + ' ' + this.props.resultsClass + ' list-unstyled' }>
 
                 {this.state.results.map((result, i) => (
-                    <li key={result.id}>
+                    <li key={result.id} >
                         <a href='#'
                            onClick={_this.clickOption.bind(_this, result, i)}
                            tabIndex='-1'

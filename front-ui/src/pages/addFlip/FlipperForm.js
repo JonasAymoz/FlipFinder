@@ -37,12 +37,14 @@ class FlipperForm extends Component {
             invalidAddress : false,
             invalidCity : false,
             invalidPostalCode : false,
+            file: [],
+            imagePreviewUrl : '',
 
         };
     }
     componentDidMount(){
         FlipperWs.getFlippers().then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             this.setState({'items' : response.data});
         });
         FlipperWs.getFlipModels().then(response =>{
@@ -213,6 +215,23 @@ class FlipperForm extends Component {
     }
 
 
+    onDrop  = (e) => {
+
+        e.preventDefault();
+
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+        }
+
+        reader.readAsDataURL(file);
+    }
+
 
     // todo Add l'ajout d'une photo via le téléphone
 
@@ -323,6 +342,23 @@ class FlipperForm extends Component {
                         <InputText label="Horaires du lieu" placeHolder="schedule" name="schedule"
                                    value={this.state.schedule}
                                    onChange={this.handleChange}/>
+
+                        <div className="form-group row">
+                            <label className="col-form-label offset-md-2 col-sm-6" htmlFor="capture">
+                                <div className="btn btn-primary"> Ajouter une Image </div>
+                            </label>
+
+                            <div className="col-sm-4">
+                                {this.state.imagePreviewUrl && <img className="imagePreview" src={this.state.imagePreviewUrl} alt="img"/>}
+                                <input type="file"
+                                   id="capture"
+                                   capture="camera"
+                                   onChange={(e) => this.onDrop(e)}
+                                   accept="image/*;capture=camera"
+                                   className='form-control imageInput'/>
+                            </div>
+                        </div>
+
                     </fieldset>
 
 

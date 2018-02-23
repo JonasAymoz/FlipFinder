@@ -13,7 +13,6 @@ class List extends Component {
 
     componentDidMount(){
         FlipperWs.getFlippers().then(response => {
-            console.log(response.data);
             this.setState({'flippers' : response.data});
         });
 
