@@ -1,9 +1,23 @@
 FlipFinder
 =============
 
-Welcome to flip finder
+Welcome to flip finder, the app that help to find the closest flipper(pinball) near you !
+This app is made for the pinball community, so you can add yourself your favs flippers around.
 
-Lookin' for some flip' ?
+If you have any question or remarks please feel free to contact !
+
+![gif](https://media.giphy.com/media/1ympjvpAH77UtZhOsn/giphy.gif)
+
+
+
+TODO 
+----
+
+- Geolocalisation
+- Add photos
+- Add directions
+- Remove boostrap =)
+
 
 Project in Dev.
 --------------
