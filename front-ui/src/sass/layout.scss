@@ -168,3 +168,30 @@ body{
     }
   }
 }
+
+// Contact
+
+.contactDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex : 1;
+  font-family: 'VT323', monospace;
+  color: $brand-warning;
+  font-weight: bold;
+
+  h2 {
+    font-family: 'VT323', monospace;
+    color: $green4;
+    text-shadow:#888 2px 2px 3px;
+  }
+  div {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+.deleteBin {
+  height: 20px;
+  color : white;
+}

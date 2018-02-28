@@ -7,15 +7,30 @@
   padding: 10px;
   color: $brand-primary;
   font-family: 'VT323', monospace ;
+  display: flex;
+}
+.titleDiv{
+  flex: 3;
 }
 
+@include media-breakpoint-only(xs){
+  .titleDiv{
+    flex: 1;
+  }
+}
 
 .headerLink {
-  position: absolute;
-  right: 0;
-  top : 15px;
-  text-align: right;
+  display: flex;
+  flex: 1;
 
+  .link{
+    flex :1 ;
+    justify-self: center;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .App-title {

@@ -6144,6 +6144,26 @@ body {
     .flipCardContent .deleteDiv .btn {
       align-self: flex-end; }
 
+.contactDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-family: 'VT323', monospace;
+  color: #3c4859;
+  font-weight: bold; }
+  .contactDiv h2 {
+    font-family: 'VT323', monospace;
+    color: #3c4859;
+    text-shadow: #888 2px 2px 3px; }
+  .contactDiv div {
+    flex: 1;
+    text-align: center; }
+
+.deleteBin {
+  height: 20px;
+  color: white; }
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
   figcaption h2 {
@@ -6352,6 +6372,9 @@ input {
   100% {
     background-position-x: -30%; } }
 
+.deleteBtn {
+  transition: all 0.4s ease; }
+
 .itemAutocomplete {
   background: #3c4859;
   color: #E6E6E6;
@@ -6427,13 +6450,25 @@ input {
   max-height: 40px;
   padding: 10px;
   color: #5DFDCB;
-  font-family: 'VT323', monospace; }
+  font-family: 'VT323', monospace;
+  display: flex; }
+
+.titleDiv {
+  flex: 3; }
+
+@media (max-width: 575.98px) {
+  .titleDiv {
+    flex: 1; } }
 
 .headerLink {
-  position: absolute;
-  right: 0;
-  top: 15px;
-  text-align: right; }
+  display: flex;
+  flex: 1; }
+  .headerLink .link {
+    flex: 1;
+    justify-self: center;
+    text-align: center; }
+    .headerLink .link:hover {
+      cursor: pointer; }
 
 .App-title {
   font-size: 1.3rem;

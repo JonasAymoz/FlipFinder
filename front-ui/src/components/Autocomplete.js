@@ -171,7 +171,6 @@ export default class Geocoder extends Component {
 
                 </ul>}
             {this.props.inputPosition === 'bottom' && input}
-
         </div>
 
     }

@@ -283,11 +283,11 @@ class FlipperForm extends Component {
                     <hr/>
                     <fieldset>
                         <legend>Adresse
-                            {false && <div className=" gpsBtn">
+                            <div className=" gpsBtn">
                                 <button type="button" className={ (this.state.lng === 'load'? 'btn-loading ' : '') + 'btn btn-primary text-right' }
                                         onClick={()=>this.setLocation()}> {this.state.gpsBtnText}
                                 </button>
-                            </div> }
+                            </div>
                         </legend>
 
                         <Geocode
@@ -343,7 +343,7 @@ class FlipperForm extends Component {
                                    value={this.state.schedule}
                                    onChange={this.handleChange}/>
 
-                        <div className="form-group row">
+                        {false && <div className="form-group row">
                             <label className="col-form-label offset-md-2 col-sm-6" htmlFor="capture">
                                 <div className="btn btn-primary"> Ajouter une Image </div>
                             </label>
@@ -357,7 +357,7 @@ class FlipperForm extends Component {
                                    accept="image/*;capture=camera"
                                    className='form-control imageInput'/>
                             </div>
-                        </div>
+                        </div>}
 
                     </fieldset>
 

@@ -7,10 +7,11 @@ class Header extends Component {
 
         return (
             <header className="App-header">
-                <Link to="/">  <h2 className="App-title">Flip Finder</h2></Link>
+                <div className="titleDiv"> <Link to="/">  <h2 className="App-title">Flip Finder</h2></Link></div>
                 <div className="headerLink">
-                    <Link to="/list">  <span className="listLink"> List   | </span> </Link>
-                    <Link to="/flippers">  <span className="addLink"> Ajouter </span> </Link>
+
+                    <Link to="/flippers" className="link">  <span className="addLink"> Ajouter </span> </Link>
+                    <Link to="/contact" className="link">  <span className="listLink "> Contact </span> </Link>
                 </div>
 
             </header>

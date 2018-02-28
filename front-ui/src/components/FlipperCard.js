@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import cross from '../img/cross.svg';
+import deleteButton from '../img/delete-button.svg';
 
 class FlipperCard extends Component {
 
@@ -8,7 +9,22 @@ class FlipperCard extends Component {
         super(props);
         this.state = {
             wideOpen : false,
+            deleteClicked : false,
         };
+    }
+
+    confirmDelete = (e) => {
+        if (!this.state.deleteClicked) {
+            this.setState({
+                deleteClicked : true,
+            });
+        } else {
+            this.props.desactivateFlipper(this.props.flip, e)
+        }
+    }
+
+    delete = (e) => {
+        this.props.desactivateFlipper(this.props.flip, e);
     }
 
     render() {
@@ -28,7 +44,10 @@ class FlipperCard extends Component {
             <div className='flipCardContent'>
                <div className=""> Prix : 1€ -> {this.props.flip.price1} parties / 2€ -> {this.props.flip.price2}</div>
                <div className="deleteDiv">
-                   <div className="btn btn-danger" onClick={(e) => this.props.desactivateFlipper(this.props.flip, e)}>Signaler un flip disparu :/ </div>
+                   <div className="btn btn-danger deleteBtn" onClick={(e) => this.confirmDelete(e)}>
+                       {this.state.deleteClicked && <span> Supprimer ce flipper ?</span>}
+                       <img className="deleteBin" src={deleteButton}/>
+                   </div>
                </div>
             </div>
 

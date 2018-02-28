@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import List from "./pages/listFlip/list";
 import NotFound from "./components/NotFound";
 import Switch from "react-router-dom/es/Switch";
+import Contact from "./pages/contact/Contact";
 
 const Routes = (props) => (
 
@@ -17,6 +18,7 @@ const Routes = (props) => (
                 <Route path="/" exact component={Home} />
                 <Route path="/flippers" component={Flippers} />
                 <Route path="/list" component={List} />
+                <Route path="/contact" component={Contact} />
                 <Route component={NotFound} />
             </Switch>
         </div>

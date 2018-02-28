@@ -6,6 +6,7 @@
 $gray : #E6E6E6;
 $black : #1A1A1A;
 
+
 $brand-primary  : #5DFDCB ;
 $brand-success : #297373 ;
 $brand-info : #61E294;
@@ -18,6 +19,11 @@ $success:       $brand-success ;
 $info:          $brand-info;
 $warning:       $brand-warning;
 $danger:        $brand-danger;
+
+$green1 : $brand-primary;
+$green2 : $brand-info;
+$green3 : $brand-success;
+$green4 : $brand-warning;
 
 
 $grid-breakpoints: (

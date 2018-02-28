@@ -224,6 +224,12 @@ input {
 }
 
 
+
+.deleteBtn {
+  transition: all 0.4s ease;
+}
+
+
 // Autocomplete Styles
 
 
@@ -258,6 +264,9 @@ input {
   max-height: 50px;
   text-align: center;
 }
+
+
+
 
 
 
