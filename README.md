@@ -6,7 +6,7 @@ This app is made for the pinball community, so you can add yourself your favs fl
 
 If you have any question or remarks please feel free to contact !
 
-![gif](https://media.giphy.com/media/1ympjvpAH77UtZhOsn/giphy.gif)
+![gif](http://media.giphy.com/media/1ympjvpAH77UtZhOsn/giphy.gif)
 
 
 
