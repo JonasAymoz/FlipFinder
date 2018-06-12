@@ -11,6 +11,7 @@ import FlipFinder.enums.FlipperState;
 import FlipFinder.webservices.api.data.FlipperBean;
 import FlipFinder.webservices.api.data.FlipperBeanImage;
 import com.coreoz.plume.db.crud.CrudService;
+import com.google.common.base.Strings;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -65,9 +66,11 @@ public class FlipperService extends CrudService<Flipper> {
     public FlipperPlaceModel getFlipper(Long id) {
         // todo refacto to flipperBean
         Flipper flip = flipperDao.findById(id);
-        return new FlipperPlaceModel(flip, placeDao.findById(flip.getPlace()), flipModelDao.findById(flip.getModel())  );
+        return new FlipperPlaceModel(flip, placeDao.findById(flip.getPlace()), flipModelDao.findById(flip.getModel()));
 
     }
+
+
 
 
     public FlipperBean addFlipper (FlipperBeanImage flipperBean) {
@@ -85,18 +88,25 @@ public class FlipperService extends CrudService<Flipper> {
         place.setCreationDate(LocalDate.now());
         placeDao.save(place);
 
-        // Add FLipper Model
-        FlipModel flipModel = new FlipModel();
-        flipModel.setMissions(flipperBean.getMissions());
-        flipModel.setName(flipperBean.getFlipName());
-        flipModelDao.save(flipModel);
 
         // Add flip
         Flipper flip = new Flipper();
         flip.setActive(FlipperState.OK.name());
         flip.setPrice1(flipperBean.getPrice1());
         flip.setPrice2(flipperBean.getPrice2());
-        flip.setModel(flipModel.getId());
+
+        //check if flipmodelId exist
+        if(Strings.isNullOrEmpty(flipperBean.getFlipModelId())){
+            //TODO : CHeck if name already exist in db bfore add
+            FlipModel flipModel = new FlipModel();
+            flipModel.setMissions(flipperBean.getMissions());
+            flipModel.setName(flipperBean.getFlipName());
+            flipModelDao.save(flipModel);
+            flip.setModel(flipModel.getId());
+        } else {
+            flip.setModel(Long.parseLong(flipperBean.getFlipModelId()));
+        }
+
         flip.setPlace(place.getId());
         flip.setAddDate(LocalDate.now());
         flip.setLastSeen(LocalDate.now());

@@ -14,6 +14,8 @@ CREATE TABLE flipfinder.ff_flipper
     price2 int(11),
     CONSTRAINT flipModel FOREIGN KEY (id) REFERENCES ff_flip_Model (id)
 );
+
+
 CREATE TABLE flipfinder.place
 (
     id int(20) PRIMARY KEY NOT NULL,
@@ -25,3 +27,4 @@ CREATE TABLE flipfinder.place
     coord point,
     creation_date date
 );
+

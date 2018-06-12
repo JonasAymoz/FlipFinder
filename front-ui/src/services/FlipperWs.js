@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 
-var server ="http://localhost:8080"
+var server ="http://localhost:8080";
+//var server = 'https://flipfinder.fr';
 
 function getFlippers() {
 	return axios.get(server+'/api/flip/all');

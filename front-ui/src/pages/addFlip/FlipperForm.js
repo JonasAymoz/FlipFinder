@@ -20,6 +20,8 @@ class FlipperForm extends Component {
             flipModels : [],
             text: '',
             flipName : '',
+            flipModelId :'',
+            hasModelSelected : false,
             client : new MapboxClient('pk.eyJ1IjoiamF5bW96IiwiYSI6ImNqY2h2cHh0bTI3N3kyd28yNDVyNmZxYTEifQ.R0SDBN2Vc924YYjQYPh4Qw'),
             lat : '',
             lng :'',
@@ -179,6 +181,7 @@ class FlipperForm extends Component {
                     var newItem = {
                         id: null,
                         flipName: this.state.flipName,
+                        flipModelId : this.state.flipModelId,
                         placeName: this.state.placeName,
                         address: this.state.address,
                         postalCode: this.state.postalCode,
@@ -240,10 +243,9 @@ class FlipperForm extends Component {
             <div className="p-3 w-100 addFlipper">
                 <h3 className="title">Ajoute un flipper</h3>
                 <form onSubmit={this.handleSubmit} className="addFlipForm container-fluid ">
-
                     <Autocomplete
                         getItemValue={(item) => item.name}
-                        open={true}
+                        open={!this.state.hasModelSelected}
                         items= {this.state.flipModels}
                         wrapperStyle={{display: 'inherit' }}
                         renderItem={(item, isHighlighted) =>
@@ -253,14 +255,15 @@ class FlipperForm extends Component {
                         }
                         shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
                         value={this.state.flipName}
-                        onSelect={(val) =>
-                            this.setState({flipName :   val})}
-                        onChange={(e) => this.setState({ flipName: e.target.value })}
-
+                        onSelect={(val, item) =>
+                            this.setState({flipName :   val,
+                                            flipModelId : item.id,
+                                            hasModelSelected : true})}
+                        onChange={(e) => this.setState({ flipName: e.target.value, hasModelSelected : false })}
                         renderInput={(props) => this.renderInput(props)}
                         renderMenu={(items, value) => (
 
-                             <div className="menuAutocomplete offset-md-2 col-9">
+                           <div className="menuAutocomplete offset-md-2 col-9">
                                 {value === '' ? (
                                     <div className=""></div>
                                 ) : this.state.loading ? (

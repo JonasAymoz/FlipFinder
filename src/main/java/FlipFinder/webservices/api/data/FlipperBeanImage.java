@@ -30,5 +30,6 @@ public class FlipperBeanImage {
 
     private String missions;
     private String flipName;
+    private String flipModelId;
 
 }
