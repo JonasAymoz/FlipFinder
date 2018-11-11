@@ -29,7 +29,7 @@ export default class HomeMap extends React.Component {
                 <Layer
                     type="symbol"
                     id="someId"
-                    layout={{ 'icon-image': 'flipMarker2' }}>
+                    layout={{ 'icon-image': 'flipMarker3' }}>
                     {
                         items.map(k => (
                             <Feature
